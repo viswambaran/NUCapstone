@@ -89,6 +89,91 @@ Enhanced Accuracy: While algorithms can sift through data at unparalleled speeds
 
 Continuous Refinement: Financial landscapes are in constant flux. Regular feedback from industry veterans ensures the system continually evolves, remaining attuned to the industry's pulse (Baker, 2021).
 
+
+# The Scope of the Project
+
+## Included in the Scope:
+
+### Data Collection:
+
+One of the foundational pillars of this project is the procurement of a rich and varied dataset comprising news articles. The aim is to ensure diversity in the data to capture a comprehensive range of topics and nuances present in financial news. This dataset will serve as the training ground, helping the model understand and categorise a wide spectrum of financial news.  
+
+### Model Development:
+
+The heart of this initiative is the creation of a text classification model robust enough to navigate the complexities of financial jargon and nuances. The model will be meticulously trained to tag and classify news articles, ensuring it can swiftly and accurately process incoming news articles.
+
+
+### Feature Engineering:
+
+This project will delve deep into advanced techniques to extract relevant features from the news articles. The exploration will encompass a range of methods, from traditional techniques like the 'bag of words' to more advanced ones like word embeddings and transformers. A special focus will be given to the zero-shot classification method, leveraging its ability to classify without explicit training on specific categories.  
+
+### Testing and Validation:
+
+To ensure the reliability and accuracy of the developed model, rigorous testing and validation phases will be implemented. This involves pitting the model against a separate test dataset, distinct from the training data. The results will then be juxtaposed against human-labelled annotations, providing a comprehensive assessment of the model's performance.
+
+
+##  Excluded from the Scope:  
+
+### News Article Collection Infrastructure:  
+
+While the importance of a robust dataset is acknowledged, this project will not delve into the specifics of news article APIs or sourcing mechanisms. The primary focus remains the development and refinement of the text classification model. The intention is to craft a model versatile enough to be integrated with any preferred news article supplier at a later stage.
+
+### Real-time News Monitoring:
+
+While real-time monitoring of news offers its set of advantages, the crux of this project is the development of a sturdy classification model. The emphasis is on ensuring the model's efficacy and accuracy rather than real-time monitoring capabilities.
+
+### Multi-lingual Support:
+
+Given the vastness and complexity of the project, the scope will be limited to news articles penned in English. While multi-lingual support offers a broader reach, introducing multiple languages also adds layers of complexity which are beyond the current project's purview.
+
+
+### Continuous Model Improvement Post-Deployment:
+
+The project encompasses iterative cycles of model training and evaluation. However, once deployed, continuous improvement mechanisms will not be part of this project phase. Such refinements and enhancements are earmarked for subsequent project phases, ensuring a structured and phased approach to development.
+
+# Data Selection, Collection & Pre-processing
+
+## Data Selection:
+
+### Source:
+The dataset chosen for this project is sourced from Kaggle, a platform renowned for its vast repository of datasets across varied domains. The specific dataset we leveraged is titled "Massive Stock News Analysis DB for NLP Backtests" and can be accessed here.
+
+### Rationale for Selection:
+Given the project's focus on financial news articles, this dataset offers a comprehensive collection of financial news headlines, making it an apt choice. Furthermore, the dataset's volume ensures a diverse range of topics, essential for training a robust model capable of understanding the multifaceted world of finance.
+
+## Data Collection:
+### Acquisition:
+The dataset was downloaded directly from Kaggle. It is worth noting that Kaggle datasets come in structured formats, usually CSV or Excel, which simplifies the subsequent processing steps.
+
+### Integrity Check:
+Post-acquisition, the dataset underwent a preliminary check to ensure its integrity. This involved verifying that there were no corrupted files and that the data matched the description provided on Kaggle.
+
+## Data Pre-processing:
+### Data Cleaning:
+
+The first step in pre-processing involved cleaning the data. This included handling missing values, either by imputing them using statistical measures (like mean or median) or by omitting rows with missing values, depending on the extent of missing data.
+
+### Text Normalisation:
+
+Given the textual nature of the dataset, it was crucial to ensure consistency. This involved converting all text to lowercase to maintain uniformity and stripping any unnecessary white spaces.
+
+### Tokenisation:
+
+The news headlines were tokenised, breaking them down into individual words or tokens. This step is fundamental for text processing, enabling further analysis and feature extraction.
+
+### Removing Stop Words:
+
+Common words that don't add significant meaning in the context of text analysis, known as 'stop words' (e.g., 'and', 'the', 'is'), were removed from the dataset. This reduces the dataset's noise and ensures that the model focuses on words carrying substantial semantic weight.
+
+### Stemming/Lemmatisation:
+
+To further refine the dataset, words were stemmed or lemmatised. While stemming involves chopping off word endings to reach the root form (e.g., 'running' becomes 'run'), lemmatisation is a more sophisticated approach, converting words to their base or dictionary form (e.g., 'ran' becomes 'run').
+
+### Feature Extraction:
+
+Post the initial pre-processing steps, the data was ready for feature extraction. Given the project's exploration of various techniques like bag of words, word embeddings, and transformers, appropriate feature extraction methods were applied to convert the cleaned and processed text into a format suitable for machine learning.
+
+
 # References:
 
 Baker, M. (2021). The Evolution of Financial Systems. Cambridge University Press.
