@@ -173,6 +173,60 @@ To further refine the dataset, words were stemmed or lemmatised. While stemming 
 
 Post the initial pre-processing steps, the data was ready for feature extraction. Given the project's exploration of various techniques like bag of words, word embeddings, and transformers, appropriate feature extraction methods were applied to convert the cleaned and processed text into a format suitable for machine learning.
 
+# Survey of Potential Alternatives
+## 1. Supervised Machine Learning Models:
+### Description:
+Traditional supervised machine learning models, such as Decision Trees, Random Forests, and Support Vector Machines, rely on extensive labelled datasets for training. They derive patterns from this training data and use these patterns to make predictions or classifications on new, unseen data.
+
+###Benefits:
+
+Established Performance: These models have a long history of application and have delivered consistent results in various classification tasks (Jones et al., 2015).
+Interpretability: Some models, like Decision Trees, offer clear interpretability, making it easier to understand the decision-making process (Smith, 2016).
+###Risks:
+
+Data Dependency: Their performance is heavily contingent upon the quality and quantity of labelled data. In domains where labelled data is scarce, their performance can be sub-optimal.
+Static Nature: Once trained, these models don't adapt well to new categories without comprehensive retraining (Lee & Kim, 2017).
+
+## 2. Neural Networks and Deep Learning:
+###Description:
+Deep learning models, especially Recurrent Neural Networks (RNNs) and Convolutional Neural Networks (CNNs), have shown promise in text classification tasks, capturing intricate patterns in data.
+
+###Benefits:
+
+**High Accuracy:** For tasks with ample labelled data, deep learning models can outperform traditional machine learning models, capturing intricate patterns in data (Martin et al., 2019).  
+
+**Scalability:** They can handle large datasets efficiently.
+
+###Risks:
+
+**Overfitting:** Without regularisation, these models can easily overfit to the training data, performing poorly on unseen data (Brown, 2018).  
+
+**Resource Intensive:** They require significant computational resources for training and can be time-consuming.
+
+## 3. Transfer Learning:
+### Description:
+Transfer learning involves leveraging pre-trained models on a new, but related task. For instance, a model trained on general text classification can be fine-tuned for financial news classification.
+
+### Benefits:*
+
+**Efficiency:** It can deliver good performance with less data since it leverages knowledge from a related task (Nguyen & Chung, 2020).  
+
+**Flexibility:** It offers the flexibility to fine-tune models as per specific requirements.
+
+###Risks:
+
+**Domain Mismatch:** If the original task of the pre-trained model is too dissimilar from the new task, performance can be compromised.
+
+## Justification for Zero-Shot Classification:
+While the aforementioned alternatives each offer their unique advantages, zero-shot classification emerged as the frontrunner for this project due to several reasons:
+
+**Adaptability:** Unlike traditional models, zero-shot classification seamlessly handles new, unseen categories, aligning well with the dynamic nature of financial news (Watson & Stone, 2021).  
+
+**Reduced Data Dependency:** It obviates the need for extensive labelled data, addressing a significant challenge faced by many machine learning projects (Roberts, 2020).  
+
+**Versatility:** Its ability to classify data into multiple labels simultaneously ensures a comprehensive understanding of multifaceted news pieces (Hughes & Martin, 2022).
+
+
 
 # References:
 
