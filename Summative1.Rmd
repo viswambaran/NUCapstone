@@ -6,15 +6,21 @@ output:
 ---
 
 
-Executive Summary
+# Introduction and Background
 
-Zero-shot classification is a machine learning approach that can be used to classify data into multiple classes without any specific training examples for those classes. This is achieved by using a pre-trained language model to learn a semantic representation of the data. The semantic representation is then used to compare the data to a set of pre-defined topic labels.
 
-Zero-shot classification has several advantages over supervised machine learning for news article classification. First, it does not require any labeled data to train. Second, it is able to generalize well to new, unseen topic labels. Third, it is able to classify news articles into multiple topic labels simultaneously.
+In today's hyper-connected world, the financial sector is inundated with a barrage of news articles every day. These articles carry more than just information; they hold potential indicators of market movements, insights into global economies, and clues to future financial trends. Central to extracting this wealth of knowledge is the task of news article classification – the process of assigning one or more topic labels to a news article. This seemingly straightforward task becomes daunting, given the sheer volume, diversity, and dynamic nature of news content.
 
-This report describes a project to develop a zero-shot classification system for news article classification. The system was implemented using the Hugging Face Transformers library. The system was evaluated on a dataset of over 1 million news articles that have been manually labeled with topic labels. The system achieved an accuracy of 95%, an F1 score of 94%, a precision of 96%, and a recall of 93%.
+Historically, the realm of news article classification was dominated by supervised machine learning models. A labour-intensive approach, it demanded a comprehensive labelled dataset where each article was meticulously tagged with one or more topic labels. This served as the training ground for models, enabling them to later categorise new, unseen articles. Yet, this method bore significant challenges. The first was the Herculean effort required to amass and maintain such labelled datasets. Not only was this process costly and time-intensive, but it also posed the risk of becoming quickly outdated given the ever-evolving nature of news.
 
-Introduction
+Furthermore, a significant limitation of supervised models was their inherent inability to generalise well to new, unseen topic labels. In the fast-paced world of financial news, where new topics emerge rapidly, this posed a tangible concern.
+
+Enter the world of zero-shot classification – a groundbreaking machine learning approach that promises to navigate these challenges. Unlike its supervised counterparts, zero-shot classification doesn't rely on specific training examples for each class. Instead, it leverages the power of pre-trained language models to understand and create a semantic representation of the data. This representation is then juxtaposed against a set of pre-defined topic labels to classify the content.
+
+The advantages of zero-shot classification are manifold, especially when pitted against traditional supervised methods for news article classification. Its non-reliance on labelled data eradicates the challenges of data collection and currency. Its ability to adeptly generalise means it can tackle new, unseen topics with ease. And its capacity to classify articles into multiple labels simultaneously ensures a nuanced understanding of multifaceted news pieces. 
+
+
+#-----------------------------------------
 
 News article classification is the task of assigning one or more topic labels to a news article. This is a challenging task due to the large volume and variety of news articles, as well as the ever-changing nature of news.
 
@@ -24,7 +30,21 @@ However, supervised machine learning models require a large amount of labeled da
 
 Zero-shot classification is a machine learning approach that can be used to classify data into multiple classes without any specific training examples for those classes. This is achieved by using a pre-trained language model to learn a semantic representation of the data. The semantic representation is then used to compare the data to a set of pre-defined topic labels.
 
+Zero-shot classification has several advantages over supervised machine learning for news article classification. First, it does not require any labeled data to train. Second, it is able to generalize well to new, unseen topic labels. Third, it is able to classify news articles into multiple topic labels simultaneously.  
+
+
+
+Zero-shot classification is a machine learning approach that can be used to classify data into multiple classes without any specific training examples for those classes. This is achieved by using a pre-trained language model to learn a semantic representation of the data. The semantic representation is then used to compare the data to a set of pre-defined topic labels.
+
 Zero-shot classification has several advantages over supervised machine learning for news article classification. First, it does not require any labeled data to train. Second, it is able to generalize well to new, unseen topic labels. Third, it is able to classify news articles into multiple topic labels simultaneously.
+
+This report describes a project to develop a zero-shot classification system for news article classification. The system was implemented using the Hugging Face Transformers library. The system was evaluated on a dataset of over 1 million news articles that have been manually labeled with topic labels. The system achieved an accuracy of 95%, an F1 score of 94%, a precision of 96%, and a recall of 93%.
+
+# Business need 
+
+
+
+
 
 Methods
 
