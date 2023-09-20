@@ -86,13 +86,17 @@ This method harnesses the latent power of language understanding, drawing infere
 
 **Dynamic Adaptability**:
 
-Traditional machine learning models, when faced with new categories, demand comprehensive retraining, a process both time-intensive and resource-heavy, collecting labeled data for news article classification can be expensive and time-consuming, as it requires human experts to assign topic labels to each article. Additionally, the number of topic labels can be very large, making it difficult to collect a comprehensive dataset.  
+Traditional machine learning models, when faced with new categories, demand comprehensive retraining, a process both time-intensive and resource-heavy, collecting labeled data for news article classification can be expensive and time-consuming, as it requires human experts to assign topic labels to each article.
+Additionally, the number of topic labels can be very large, making it difficult to collect a comprehensive dataset.
 
 Zero-shot classification's ability to swiftly adapt to novel topics without this exhaustive retraining makes it especially suited for the dynamic landscape of financial news (Brown & Johnson, 2019).
 
 **Minimal Data Dependence**:
 
-Gathering and curating vast labelled datasets is a significant challenge in machine learning (Wang et al., 2018). Zero-shot classification's ability to function without such extensive labelled data reduces project overheads considerably. This is important for news article classification, where new topics are constantly emerging. Supervised machine learning models typically require new data to be collected and labeled whenever a new topic label is introduced.
+Gathering and curating vast labelled datasets is a significant challenge in machine learning (Wang et al., 2018).
+Zero-shot classification's ability to function without such extensive labelled data reduces project overheads considerably.
+This is important for news article classification, where new topics are constantly emerging.
+Supervised machine learning models typically require new data to be collected and labeled whenever a new topic label is introduced.
 
 **Broad Spectrum Analysis**:
 
@@ -191,12 +195,12 @@ Furthermore, the dataset's volume ensures a diverse range of topics, essential f
 ### Acquisition:
 
 The dataset was downloaded directly from Kaggle.
-It is worth noting that Kaggle datasets come in structured formats, usually CSV or Excel, which simplifies the subsequent processing steps.
+It is worth noting that Kaggle datasets come in structured formats, usually CSV or Excel, which simplifies the subsequent pre processing steps.
 
 ### Integrity Check:
 
-Post-acquisition, the dataset underwent a preliminary check to ensure its integrity.
-This involved verifying that there were no corrupted files and that the data matched the description provided on Kaggle.
+Post-acquisition, the dataset underwent a preliminary check to ensure its integrity and quality.
+This involved verifying that there were no corrupted files present and that the data matched the description provided on Kaggle as well as a sanity check on the missing data, misplaced columns and so on.
 
 ## Data Pre-processing:
 
@@ -204,6 +208,7 @@ This involved verifying that there were no corrupted files and that the data mat
 
 The first step in pre-processing involved cleaning the data.
 This included handling missing values, either by imputing them using statistical measures (like mean or median) or by omitting rows with missing values, depending on the extent of missing data.
+However to reiterate the point made earlier this dataset is a popular dataset and as such minimal cleaning was required to get it to the optimal standard for use within this project.
 
 ### Text Normalisation:
 
@@ -213,7 +218,7 @@ This involved converting all text to lowercase to maintain uniformity and stripp
 ### Tokenisation:
 
 The news headlines were tokenised, breaking them down into individual words or tokens.
-This step is fundamental for text processing, enabling further analysis and feature extraction.
+This step is fundamental for text processing, enabling further analysis of the text within the headlines and subsequently feature extraction which undoubtely will help improve my understanding of topics within the headline.
 
 ### Removing Stop Words:
 
@@ -224,11 +229,14 @@ This reduces the dataset's noise and ensures that the model focuses on words car
 
 To further refine the dataset, words were stemmed or lemmatised.
 While stemming involves chopping off word endings to reach the root form (e.g., 'running' becomes 'run'), lemmatisation is a more sophisticated approach, converting words to their base or dictionary form (e.g., 'ran' becomes 'run').
+This helps in identifying common patterns or themes within the headlines as to avoid complicating the task wtih additional categories for similar terms.
 
 ### Feature Extraction:
 
 Post the initial pre-processing steps, the data was ready for feature extraction.
 Given the project's exploration of various techniques like bag of words, word embeddings, and transformers, appropriate feature extraction methods were applied to convert the cleaned and processed text into a format suitable for machine learning.
+Initially this involved identifying the top most common terms mentioned within the headlines post processing to produce the bag of words as I thought this would be the best way to narrow down on what would be relevant for the dataset.
+However this method did not prove to be useful as I was left with a list of words which held no semantic weight in the context of the task at hand.
 
 # Survey of Potential Alternatives
 
@@ -243,11 +251,13 @@ They derive patterns from this training data and use these patterns to make pred
 
 Established Performance: These models have a long history of application and have delivered consistent results in various classification tasks (Jones et al., 2015).
 Interpretability: Some models, like Decision Trees, offer clear interpretability, making it easier to understand the decision-making process (Smith, 2016).
-\#\#\# Risks:
+
+### Risks:  
 
 Data Dependency: Their performance is heavily contingent upon the quality and quantity of labelled data.
 In domains where labelled data is scarce, their performance can be sub-optimal.
-Static Nature: Once trained, these models don't adapt well to new categories without comprehensive retraining (Lee & Kim, 2017).
+Static Nature: Once trained, these models don't adapt well to new categories without comprehensive retraining which for this task would be computationally very expensive.
+(Lee & Kim, 2017).
 
 ## 2. Neural Networks and Deep Learning:
 
@@ -288,32 +298,36 @@ For instance, a model trained on general text classification can be fine-tuned f
 
 While the aforementioned alternatives each offer their unique advantages, zero-shot classification emerged as the frontrunner for this project due to several reasons:
 
+1.  Dynamic Nature of Financial News: Financial news is inherently dynamic, with new events, trends, and narratives emerging frequently.
+    Traditional supervised learning models require retraining with new labeled data every time a new category arises.
+    zero-shot classification, by design, can make predictions on unseen categories, making it adaptable to the ever-changing landscape of financial news.
 
-1. Dynamic Nature of Financial News:
-Financial news is inherently dynamic, with new events, trends, and narratives emerging frequently. Traditional supervised learning models require retraining with new labeled data every time a new category arises. zero-shot classification, by design, can make predictions on unseen categories, making it adaptable to the ever-changing landscape of financial news.
+2.  Cost and Time Efficiency: Labeling data for each new category in the financial domain can be costly and time-consuming.
+    Experts might need to manually label thousands of articles to train a supervised model.
+    zero-shot classification eliminates this need by leveraging existing knowledge to make predictions on new categories, leading to significant savings in time and resources.
 
-2. Cost and Time Efficiency:
-Labeling data for each new category in the financial domain can be costly and time-consuming. Experts might need to manually label thousands of articles to train a supervised model. zero-shot classification eliminates this need by leveraging existing knowledge to make predictions on new categories, leading to significant savings in time and resources.
+3.  Scalability: As the financial world expands, so do the topics covered in news articles.
+    zero-shot classification can easily scale to accommodate new categories without the need for extensive model retraining or data collection, ensuring the classification system remains robust and relevant.
 
-3. Scalability:
-As the financial world expands, so do the topics covered in news articles. zero-shot classification can easily scale to accommodate new categories without the need for extensive model retraining or data collection, ensuring the classification system remains robust and relevant.
+4.  Leveraging External Knowledge: zero-shot classification often utilizes embeddings or knowledge graphs that capture semantic relationships between words or categories.
+    By leveraging this external knowledge, the model can infer relationships between financial news topics, even if it hasn't been explicitly trained on them.
 
-4. Leveraging External Knowledge:
-zero-shot classification often utilizes embeddings or knowledge graphs that capture semantic relationships between words or categories. By leveraging this external knowledge, the model can infer relationships between financial news topics, even if it hasn't been explicitly trained on them.
+5.  Flexibility in Task Definition: zero-shot classification provides flexibility in defining classification tasks.
+    For instance, today's task might involve categorizing news into broad topics, but tomorrow's need might involve a finer granularity or entirely new categories.
+    Zero-shot models can adapt to these changes without starting from scratch.
 
-5. Flexibility in Task Definition:
-zero-shot classification provides flexibility in defining classification tasks. For instance, today's task might involve categorizing news into broad topics, but tomorrow's need might involve a finer granularity or entirely new categories. Zero-shot models can adapt to these changes without starting from scratch.
+6.  Avoiding Data Imbalances: In traditional supervised learning, class imbalances can hinder model performance.
+    Some news categories might have abundant samples, while others might be sparse.
+    zero-shot classification can mitigate this issue by focusing on semantic understanding rather than frequency.
 
-6. Avoiding Data Imbalances:
-In traditional supervised learning, class imbalances can hinder model performance. Some news categories might have abundant samples, while others might be sparse. zero-shot classification can mitigate this issue by focusing on semantic understanding rather than frequency.
+7.  Continuous Learning: Financial markets and news evolve based on global events, regulatory changes, and technological advancements.
+    zero-shot classification supports continuous learning where the model can incorporate new knowledge without the need for exhaustive retraining.
 
-7. Continuous Learning:
-Financial markets and news evolve based on global events, regulatory changes, and technological advancements. zero-shot classification supports continuous learning where the model can incorporate new knowledge without the need for exhaustive retraining.
+8.  Ethical Considerations: By reducing the need for extensive labelled datasets, zero-shot classification can help in maintaining the privacy and ethical considerations associated with data collection, especially when dealing with sensitive financial information.
 
-8. Ethical Considerations:
-By reducing the need for extensive labelled datasets, zero-shot classification can help in maintaining the privacy and ethical considerations associated with data collection, especially when dealing with sensitive financial information.
-
-Given the dynamic and expansive nature of financial news, zero-shot classification offers a promising approach to classification. Its ability to generalize to unseen categories, combined with cost efficiency, scalability, and flexibility, makes it a compelling choice for this task. While challenges remain, especially in terms of evaluation and confidence interpretation, the potential benefits of zero-shot classification in the financial domain are significant.
+Given the dynamic and expansive nature of financial news, zero-shot classification offers a promising approach to classification.
+Its ability to generalize to unseen categories, combined with cost efficiency, scalability, and flexibility, makes it a compelling choice for this task.
+While challenges remain, especially in terms of evaluation and confidence interpretation, the potential benefits of zero-shot classification in the financial domain are significant.
 
 <!-- **Adaptability:** Unlike traditional models, zero-shot classification seamlessly handles new, unseen categories, aligning well with the dynamic nature of financial news (Watson & Stone, 2021).   -->
 
