@@ -182,22 +182,22 @@ Traditional supervised machine learning models, such as Decision Trees, Random F
 
 Established Performance: These models have a long history of application and have delivered consistent results in various classification tasks (Jones et al., 2015).
 Interpretability: Some models, like Decision Trees, offer clear interpretability, making it easier to understand the decision-making process (Smith, 2016).
-###Risks:
+### Risks:
 
 Data Dependency: Their performance is heavily contingent upon the quality and quantity of labelled data. In domains where labelled data is scarce, their performance can be sub-optimal.
 Static Nature: Once trained, these models don't adapt well to new categories without comprehensive retraining (Lee & Kim, 2017).
 
 ## 2. Neural Networks and Deep Learning:
-###Description:
+### Description:
 Deep learning models, especially Recurrent Neural Networks (RNNs) and Convolutional Neural Networks (CNNs), have shown promise in text classification tasks, capturing intricate patterns in data.
 
-###Benefits:
+### Benefits:
 
 **High Accuracy:** For tasks with ample labelled data, deep learning models can outperform traditional machine learning models, capturing intricate patterns in data (Martin et al., 2019).  
 
 **Scalability:** They can handle large datasets efficiently.
 
-###Risks:
+### Risks:
 
 **Overfitting:** Without regularisation, these models can easily overfit to the training data, performing poorly on unseen data (Brown, 2018).  
 
@@ -207,13 +207,13 @@ Deep learning models, especially Recurrent Neural Networks (RNNs) and Convolutio
 ### Description:
 Transfer learning involves leveraging pre-trained models on a new, but related task. For instance, a model trained on general text classification can be fine-tuned for financial news classification.
 
-### Benefits:*
+### Benefits:
 
 **Efficiency:** It can deliver good performance with less data since it leverages knowledge from a related task (Nguyen & Chung, 2020).  
 
 **Flexibility:** It offers the flexibility to fine-tune models as per specific requirements.
 
-###Risks:
+### Risks:
 
 **Domain Mismatch:** If the original task of the pre-trained model is too dissimilar from the new task, performance can be compromised.
 
