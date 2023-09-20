@@ -60,11 +60,13 @@ Zero-shot classification is a transformative method in the domain of machine lea
 
 **Dynamic Adaptability**:  
 
-Traditional machine learning models, when faced with new categories, demand comprehensive retraining, a process both time-intensive and resource-heavy. Zero-shot classification's ability to swiftly adapt to novel topics without this exhaustive retraining makes it especially suited for the dynamic landscape of financial news (Brown & Johnson, 2019).
+Traditional machine learning models, when faced with new categories, demand comprehensive retraining, a process both time-intensive and resource-heavy, collecting labeled data for news article classification can be expensive and time-consuming, as it requires human experts to assign topic labels to each article. Additionally, the number of topic labels can be very large, making it difficult to collect a comprehensive dataset.  
+
+Zero-shot classification's ability to swiftly adapt to novel topics without this exhaustive retraining makes it especially suited for the dynamic landscape of financial news (Brown & Johnson, 2019).
 
 **Minimal Data Dependence**: 
 
-Gathering and curating vast labelled datasets is a significant challenge in machine learning (Wang et al., 2018). Zero-shot classification's ability to function without such extensive labelled data reduces project overheads considerably.
+Gathering and curating vast labelled datasets is a significant challenge in machine learning (Wang et al., 2018). Zero-shot classification's ability to function without such extensive labelled data reduces project overheads considerably. This is important for news article classification, where new topics are constantly emerging. Supervised machine learning models typically require new data to be collected and labeled whenever a new topic label is introduced.
 
 **Broad Spectrum Analysis**:  
 
@@ -220,11 +222,38 @@ Transfer learning involves leveraging pre-trained models on a new, but related t
 ## Justification for Zero-Shot Classification:
 While the aforementioned alternatives each offer their unique advantages, zero-shot classification emerged as the frontrunner for this project due to several reasons:
 
-**Adaptability:** Unlike traditional models, zero-shot classification seamlessly handles new, unseen categories, aligning well with the dynamic nature of financial news (Watson & Stone, 2021).  
 
-**Reduced Data Dependency:** It obviates the need for extensive labelled data, addressing a significant challenge faced by many machine learning projects (Roberts, 2020).  
+1. Dynamic Nature of Financial News:
+Financial news is inherently dynamic, with new events, trends, and narratives emerging frequently. Traditional supervised learning models require retraining with new labeled data every time a new category arises. zero-shot classification, by design, can make predictions on unseen categories, making it adaptable to the ever-changing landscape of financial news.
 
-**Versatility:** Its ability to classify data into multiple labels simultaneously ensures a comprehensive understanding of multifaceted news pieces (Hughes & Martin, 2022).
+2. Cost and Time Efficiency:
+Labeling data for each new category in the financial domain can be costly and time-consuming. Experts might need to manually label thousands of articles to train a supervised model. zero-shot classification eliminates this need by leveraging existing knowledge to make predictions on new categories, leading to significant savings in time and resources.
+
+3. Scalability:
+As the financial world expands, so do the topics covered in news articles. zero-shot classification can easily scale to accommodate new categories without the need for extensive model retraining or data collection, ensuring the classification system remains robust and relevant.
+
+4. Leveraging External Knowledge:
+zero-shot classification often utilizes embeddings or knowledge graphs that capture semantic relationships between words or categories. By leveraging this external knowledge, the model can infer relationships between financial news topics, even if it hasn't been explicitly trained on them.
+
+5. Flexibility in Task Definition:
+zero-shot classification provides flexibility in defining classification tasks. For instance, today's task might involve categorizing news into broad topics, but tomorrow's need might involve a finer granularity or entirely new categories. Zero-shot models can adapt to these changes without starting from scratch.
+
+6. Avoiding Data Imbalances:
+In traditional supervised learning, class imbalances can hinder model performance. Some news categories might have abundant samples, while others might be sparse. zero-shot classification can mitigate this issue by focusing on semantic understanding rather than frequency.
+
+7. Continuous Learning:
+Financial markets and news evolve based on global events, regulatory changes, and technological advancements. zero-shot classification supports continuous learning where the model can incorporate new knowledge without the need for exhaustive retraining.
+
+8. Ethical Considerations:
+By reducing the need for extensive labelled datasets, zero-shot classification can help in maintaining the privacy and ethical considerations associated with data collection, especially when dealing with sensitive financial information.
+
+Given the dynamic and expansive nature of financial news, zero-shot classification offers a promising approach to classification. Its ability to generalize to unseen categories, combined with cost efficiency, scalability, and flexibility, makes it a compelling choice for this task. While challenges remain, especially in terms of evaluation and confidence interpretation, the potential benefits of zero-shot classification in the financial domain are significant.
+
+<!-- **Adaptability:** Unlike traditional models, zero-shot classification seamlessly handles new, unseen categories, aligning well with the dynamic nature of financial news (Watson & Stone, 2021).   -->
+
+<!-- **Reduced Data Dependency:** It obviates the need for extensive labelled data, addressing a significant challenge faced by many machine learning projects (Roberts, 2020).   -->
+
+<!-- **Versatility:** Its ability to classify data into multiple labels simultaneously ensures a comprehensive understanding of multifaceted news pieces (Hughes & Martin, 2022). -->
 
 
 
