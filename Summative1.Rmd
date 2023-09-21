@@ -8,6 +8,10 @@ editor_options:
     wrap: sentence
 ---
 
+# Abstract 
+
+This paper proposes a proof of concept (PoC) for how Zero Shot Classification (ZSL) can be applied to financial news headlines in order to rapidly label headlines relevant to risk specialist domains.
+
 # Introduction and Background
 
 In today's hyper-connected world, the financial sector is inundated with a barrage of news articles every day.
@@ -215,23 +219,23 @@ However to reiterate the point made earlier this dataset is a popular dataset an
 Given the textual nature of the dataset, it was crucial to ensure consistency.
 This involved converting all text to lowercase to maintain uniformity and stripping any unnecessary white spaces.
 
-### Tokenisation:
+#### Tokenisation:
 
 The news headlines were tokenised, breaking them down into individual words or tokens.
 This step is fundamental for text processing, enabling further analysis of the text within the headlines and subsequently feature extraction which undoubtely will help improve my understanding of topics within the headline.
 
-### Removing Stop Words:
+#### Removing Stop Words:
 
 Common words that don't add significant meaning in the context of text analysis, known as 'stop words' (e.g., 'and', 'the', 'is'), were removed from the dataset.
 This reduces the dataset's noise and ensures that the model focuses on words carrying substantial semantic weight.
 
-### Stemming/Lemmatisation:
+#### Stemming/Lemmatisation:
 
 To further refine the dataset, words were stemmed or lemmatised.
 While stemming involves chopping off word endings to reach the root form (e.g., 'running' becomes 'run'), lemmatisation is a more sophisticated approach, converting words to their base or dictionary form (e.g., 'ran' becomes 'run').
 This helps in identifying common patterns or themes within the headlines as to avoid complicating the task wtih additional categories for similar terms.
 
-### Feature Extraction:
+#### Feature Extraction:
 
 Post the initial pre-processing steps, the data was ready for feature extraction.
 Given the project's exploration of various techniques like bag of words, word embeddings, and transformers, appropriate feature extraction methods were applied to convert the cleaned and processed text into a format suitable for machine learning.
@@ -247,16 +251,29 @@ However this method did not prove to be useful as I was left with a list of word
 Traditional supervised machine learning models, such as Decision Trees, Random Forests, and Support Vector Machines, rely on extensive labelled datasets for training.
 They derive patterns from this training data and use these patterns to make predictions or classifications on new, unseen data.
 
+Supervised learning employs a training dataset to instruct models to produce the intended outcome.
+This dataset comprises both inputs and their corresponding correct outputs, facilitating the model's learning process.
+The algorithm evaluates its precision using the loss function and fine-tunes until the error is suitably reduced.
+
+Classification involves using an algorithm to correctly categorise test data into distinct groups.
+It identifies specific items within the dataset and tries to make determinations about how these items should be labeled.
+Prominent classification algorithms include linear classifiers, support vector machines (SVM), decision trees, k-nearest neighbor, and random forest.
+(IBM, 2023)
+
 ### Benefits:
 
 Established Performance: These models have a long history of application and have delivered consistent results in various classification tasks (Jones et al., 2015).
+
 Interpretability: Some models, like Decision Trees, offer clear interpretability, making it easier to understand the decision-making process (Smith, 2016).
 
-### Risks:  
+### Risks:
 
 Data Dependency: Their performance is heavily contingent upon the quality and quantity of labelled data.
 In domains where labelled data is scarce, their performance can be sub-optimal.
-Static Nature: Once trained, these models don't adapt well to new categories without comprehensive retraining which for this task would be computationally very expensive.
+This is also requires additional resources where labels need to be verified after they have been tagged by an employee.
+Usually this would involve sessions where multiple people are tasked to label the same headlines and the most frequent labels to be identified as the correct label.
+
+Static Nature: Once trained, these models don't adapt well to new categories without comprehensive retraining which for this task would be computationally very expensive given the vast amount of expected news articles we would receive daily.
 (Lee & Kim, 2017).
 
 ## 2. Neural Networks and Deep Learning:
@@ -283,6 +300,8 @@ Deep learning models, especially Recurrent Neural Networks (RNNs) and Convolutio
 
 Transfer learning involves leveraging pre-trained models on a new, but related task.
 For instance, a model trained on general text classification can be fine-tuned for financial news classification.
+
+It is a popular approach in deep learning where pre-trained models are used as the starting point on natural language processing tasks given the vast compute and time resources required to develop neural network models on these problems and from the huge jumps in skill that they provide on related problems.
 
 ### Benefits:
 
@@ -321,9 +340,10 @@ While the aforementioned alternatives each offer their unique advantages, zero-s
     zero-shot classification can mitigate this issue by focusing on semantic understanding rather than frequency.
 
 7.  Continuous Learning: Financial markets and news evolve based on global events, regulatory changes, and technological advancements.
-    zero-shot classification supports continuous learning where the model can incorporate new knowledge without the need for exhaustive retraining.
+    Zero-shot classification supports continuous learning where the model can incorporate new knowledge without the need for exhaustive retraining.
 
 8.  Ethical Considerations: By reducing the need for extensive labelled datasets, zero-shot classification can help in maintaining the privacy and ethical considerations associated with data collection, especially when dealing with sensitive financial information.
+    Another ethical consideration would also be related to unconscious bias, supervisors with supreme knowledge of their financial domain may tend to label headlines based on their particular experiences which can lead to potentially bias labels however zero shot classification focuses simply on the semantic meaning and therefore takes some of these biases away.
 
 Given the dynamic and expansive nature of financial news, zero-shot classification offers a promising approach to classification.
 Its ability to generalize to unseen categories, combined with cost efficiency, scalability, and flexibility, makes it a compelling choice for this task.
@@ -373,6 +393,9 @@ Wang, D., Zhou, L.
 (2018).
 Challenges in Machine Learning Data Collection.
 AI Journal, 11(1), pp. 5-15.
+
+*What is supervised learning?* (no date) *IBM*.
+Available at: <https://www.ibm.com/topics/supervised-learning>
 
 <!-- Methods -->
 
