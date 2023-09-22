@@ -6,6 +6,14 @@ from transformers import pipeline
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
+import certifi
+
+#Replace certifi for other laptop 
+
+def custom_where():
+	return r"C:\Miniconda3\envs\epa\Lib\site-packages\boerequests\extdata\cacert.pem"
+	
+certifi.where = custom_where
 
 
 #Removing Stopwords from the headlines 

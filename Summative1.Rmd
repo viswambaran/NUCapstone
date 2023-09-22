@@ -1,9 +1,9 @@
 ---
 title: "Using Zero Shot Classification to classify Financial News Headlines"
 output:
-  word_document: default
-  html_notebook: default
   pdf_document: default
+  html_notebook: default
+  word_document: default
 editor_options:
   markdown:
     wrap: sentence
@@ -15,6 +15,23 @@ This paper proposes a proof of concept (PoC) for how Zero Shot Classification (Z
 Using a curated dataset of financial headlines, the analysis sought to gauge the capabilities and potential pitfalls of using this methodology.
 
 # Introduction and Background
+
+The Prudential Regulation Authority (PRA) has two primary objectives: a general objective to
+promote the safety and soundness of the firms it regulates, focusing on the adverse
+effects that they can have on the stability of the UK financial system; and an objective
+specific to insurance firms, to contribute to securing an appropriate degree of protection
+for policyholders.
+
+The resilience of the UK banking and insurance sectors is based on a strong foundation
+of robust regulatory standards that we have established since the PRA was founded.
+In
+order to maintain and build on this safety and soundness, we must continue to evolve our
+approach to account for changes in the world around us while our approach has evolved, it
+continues to be underpinned by three core principles established at the outset of the
+PRA: our supervisors rely on judgement in taking decisions; we assess firms not just
+against current risks, but also against those that could plausibly arise further ahead; and
+we focus on those issues and firms that are likely to pose the greatest risk to our
+objectives.
 
 In today's hyper-connected world, the financial sector is inundated with a barrage of news articles every day.
 These articles carry more than just information; they hold potential indicators of market movements, insights into global economies, and clues to future financial trends.
@@ -67,14 +84,14 @@ This proactive approach not only mitigates potential risks but also unveils oppo
 ## Zero-Shot Classification:
 
 Zero-shot classification is a transformative method in the domain of machine learning.
-Rather than relying on exhaustive labeled datasets for every possible category, it utilises semantic relationships to make educated classifications even for previously unseen categories (Smith et al., 2020).
+Rather than relying on exhaustive labeled datasets for every possible category, it utilises semantic relationships to make educated classifications even for previously unseen categories.
 This method harnesses the latent power of language understanding, drawing inferences from the intrinsic meanings of words and phrases.
 
 ## Justification for Zero-Shot Classification:
 
 Pre-trained language models serve as the bedrock of zero-shot classification.
 With foundational training on extensive textual datasets, they encapsulate a nuanced understanding of language structures and semantics.
-For this project, the Large Language Model (LLM) BART model was chosen, specifically the `facebook bart large mnli` given its demonstrated proficiency across numerous natural language processing tasks (Roberts & Patel, 2020).
+For this project, the Large Language Model (LLM) BART model was chosen, specifically the `facebook bart large mnli` given its demonstrated proficiency across numerous natural language processing tasks.
 
 **Dynamic Adaptability**:
 
@@ -85,11 +102,11 @@ Financial news is inherently dynamic, with new events, trends, and narratives em
 Traditional supervised learning models require significant retraining with new labelled data every time a new category is deemed neccesarry to incorporate.
 Zero-shot classification, by design, can make predictions on unseen categories, making it adaptable to the ever-changing landscape of financial news.
 
-Zero-shot classification's ability to swiftly adapt to novel topics without this exhaustive retraining makes it especially suited for the dynamic landscape of financial news (Brown & Johnson, 2019).
+Zero-shot classification's ability to swiftly adapt to novel topics without this exhaustive retraining makes it especially suited for the dynamic landscape of financial news.
 
 **Minimal Data Dependence**:
 
-Gathering and curating vast labelled datasets is a significant challenge in machine learning (Wang et al., 2018).
+Gathering and curating vast labelled datasets is a significant challenge in machine learning.
 Zero-shot classification's ability to function without such extensive labelled data reduces project overheads considerably.
 This is important for news article classification, where new topics are constantly emerging.
 Supervised machine learning models typically require new data to be collected and labeled whenever a new topic label is introduced.
@@ -267,13 +284,12 @@ The algorithm evaluates its precision using the loss function and fine-tunes unt
 Classification involves using an algorithm to correctly categorise test data into distinct groups.
 It identifies specific items within the dataset and tries to make determinations about how these items should be labeled.
 Prominent classification algorithms include linear classifiers, support vector machines (SVM), decision trees, k-nearest neighbor, and random forest.
-(IBM, 2023)
 
 ### Benefits:
 
-Established Performance: These models have a long history of application and have delivered consistent results in various classification tasks (Jones et al., 2015).
+Established Performance: These models have a long history of application and have delivered consistent results in various classification tasks.
 
-Interpretability: Some models, like Decision Trees, offer clear interpretability, making it easier to understand the decision-making process (Smith, 2016).
+Interpretability: Some models, like Decision Trees, offer clear interpretability, making it easier to understand the decision-making process.
 
 ### Risks:
 
@@ -283,7 +299,6 @@ This is also requires additional resources where labels need to be verified afte
 Usually this would involve sessions where multiple people are tasked to label the same headlines and the most frequent labels to be identified as the correct label.
 
 Static Nature: Once trained, these models don't adapt well to new categories without comprehensive retraining which for this task would be computationally very expensive given the vast amount of expected news articles we would receive daily.
-(Lee & Kim, 2017).
 
 ## 2. Neural Networks and Deep Learning:
 
@@ -293,13 +308,13 @@ Deep learning models, especially Recurrent Neural Networks (RNNs) and Convolutio
 
 ### Benefits:
 
-**High Accuracy:** For tasks with ample labelled data, deep learning models can outperform traditional machine learning models, capturing intricate patterns in data (Martin et al., 2019).
+**High Accuracy:** For tasks with ample labelled data, deep learning models can outperform traditional machine learning models, capturing intricate patterns in data.
 
 **Scalability:** They can handle large datasets efficiently.
 
 ### Risks:
 
-**Overfitting:** Without regularisation, these models can easily overfit to the training data, performing poorly on unseen data (Brown, 2018).
+**Overfitting:** Without regularisation, these models can easily overfit to the training data, performing poorly on unseen data.
 
 **Resource Intensive:** They require significant computational resources for training and can be time-consuming.
 
@@ -315,7 +330,7 @@ However this does mean that the models will need re-training over time as potent
 
 ### Benefits:
 
-**Efficiency:** It can deliver good performance with less data since it leverages knowledge from a related task (Nguyen & Chung, 2020).
+**Efficiency:** It can deliver good performance with less data since it leverages knowledge from a related task.
 
 **Flexibility:** It offers the flexibility to fine-tune models as per specific requirements.
 
@@ -474,12 +489,63 @@ Available at: <https://www.nltk.org/>
 
 Streamlit (2023) Available at: [https://streamlit.io/](https://spacy.io/)
 
+HuggingFace (2023) Available at: <https://huggingface.co/facebook/bart-large-mnli>
+
+The Prudential Regulation Authority's approach to banking supervision.
+(2023).
+Available at: <https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/approach/banking-approach-2023.pdf>
+
+Publication New economy, new finance, new Bank The Bank of England's response to the van Steenis review on the Future of Finance.
+(n.d.).
+Available at: <https://www.bankofengland.co.uk/-/media/boe/files/report/2019/response-to-the-future-of-finance-report.pdf.>
+
+Kumar, A.
+(2021).
+*Zeroshot Classification*.
+[online] Medium.
+Available at: <https://akgeni.medium.com/zeroshot-classification-864a278628f6.>
+
+aws.amazon.com.
+(2023).
+*Zero-shot text classification with Amazon SageMaker JumpStart \| AWS Machine Learning Blog*.
+[online] Available at: <https://aws.amazon.com/blogs/machine-learning/zero-shot-text-classification-with-amazon-sagemaker-jumpstart/#:~:text=The%20default%20zero%2Dshot%20classification>
+
 Spacy (2023) Spacy · industrial-strength natural language processing in python, · Industrial-strength Natural Language Processing in Python.
 Available at: <https://spacy.io/>
+
+Kumar, A.
+(2021).
+*Zeroshot Classification Performance Evaluation*.
+[online] Medium.
+Available at: <https://akgeni.medium.com/zeroshot-classification-performance-evaluation-23392643b753>
+
+saturncloud.io.
+(2023).
+*Using Huggingface Zero-Shot Text Classification with Large Datasets \| Saturn Cloud Blog*.
+[online] Available at: <https://saturncloud.io/blog/using-huggingface-zeroshot-text-classification-with-large-datasets/#:~:text=Zero%2Dshot%20learning%20is%20a>
+
+Tiu, E.
+(2021).
+*Understanding Zero-Shot Learning --- Making ML More Human*.
+[online] Medium.
+Available at: <https://towardsdatascience.com/understanding-zero-shot-learning-making-ml-more-human-4653ac35ccab.>
+
+Romera-Paredes, B.
+and Torr, P. (n.d.).
+*An embarrassingly simple approach to zero-shot learning*.
+[online] Available at: <http://proceedings.mlr.press/v37/romera-paredes15.pdf> [Accessed 22 Sep. 2023].
+
+‌
+
+‌
+
+
 
 # Appendices
 
 ## Code & Documentation
+
+Appendix 1 - Code used to develop zero shot model and streamlit app
 
 ``` {.Python}
 import streamlit as st
@@ -633,20 +699,38 @@ if st.button("Classify"):
 
 ## Charts
 
+Appendix 2 - High level overview summary of prediction results
+
 ![](figs/COMBINEDALL.png)
+
+Appendix 3 - Distribution of predicted scored for Broader categories
 
 ![](figs/broader_label_scoredist.png)
 
+Appendix 3 - Distribution of broader categories by label frequency
+
 ![](figs/broader_labels_dist.png)
+
+Appendix 4 - Distribution of predicted scored for granular categories
 
 ![](figs/granular_labels_scoredist.png "Granular categories")
 
+Appendix 5 - Distribution of granular categories by label frequency
+
 ![](figs/granular_labels_dist.png)
+
+Appendix 6 - Distribution of confidence scores (prediction vs manual labels)
 
 ![](figs/comparisonofscores.png)
 
+Appendix 7 - Confusion matrix for granular categories
+
 ![](figs/confusion.png)
 
+Appendix 8 - Streamlit application homepage
+
 ![](figs/apphome.png)
+
+Appendix 8 - Streamlit application display of classified results
 
 ![](figs/apppag1.png)
