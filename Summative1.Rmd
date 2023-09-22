@@ -427,6 +427,12 @@ For this initially two lists were created to classify, one labelled the "parent 
 These categories were produced to capture generic financial news categories in collaboration with colleagues who regularly look at financial news.
 The two categories were produced to see how well the model copes with classifying into a high level category and a more granular category.
 
+Whilst the dataset did not come pre labelled with the correct labels, this made creating performance metrics quite challenging to implement as usually metrics such as accuracy, recall, sensitivity, precision and F1 scores are traditionally used to quantify the task.
+Given the dataset came with over one million datapoints it is impractical to manually label these headlines even with a team of experts as this is resource intensive.
+As an alternative only a few rows were manually labelled and assumed to be the ground truth, in addition to this I compared the zero shot method to other methods such as Term Frequency - Inverse Document Frequency (TF-IDF) methods to infer the labels.
+The TF-IDF method is a widely used statistical method in NLP or natural language processing.
+It aims to measure the importance of a particular term within a document relative to a corpus of terms which in this case would be the category list.
+
 <!-- **Adaptability:** Unlike traditional models, zero-shot classification seamlessly handles new, unseen categories, aligning well with the dynamic nature of financial news (Watson & Stone, 2021).   -->
 
 <!-- **Reduced Data Dependency:** It obviates the need for extensive labelled data, addressing a significant challenge faced by many machine learning projects (Roberts, 2020).   -->
