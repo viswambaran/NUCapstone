@@ -1,9 +1,9 @@
 ---
 title: "Using Zero Shot Classification to classify Financial News Headlines"
 output:
-  pdf_document: default
-  html_notebook: default
   word_document: default
+  html_notebook: default
+  pdf_document: default
 editor_options:
   markdown:
     wrap: sentence
@@ -12,6 +12,7 @@ editor_options:
 # Abstract
 
 This paper proposes a proof of concept (PoC) for how Zero Shot Classification (ZSL) can be applied to financial news headlines in order to rapidly label headlines relevant to risk specialist domains.
+Using a curated dataset of financial headlines, the analysis sought to gauge the capabilities and potential pitfalls of using this methodology.
 
 # Introduction and Background
 
@@ -39,24 +40,6 @@ The advantages of zero-shot classification are manifold, especially when pitted 
 Its non-reliance on labelled data eradicates the challenges of data collection and currency.
 Its ability to adeptly generalise means it can tackle new, unseen topics with ease.
 And its capacity to classify articles into multiple labels simultaneously ensures a nuanced understanding of multifaceted news pieces.
-
-<!-- #----------------------------------------- -->
-
-<!-- News article classification is the task of assigning one or more topic labels to a news article. This is a challenging task due to the large volume and variety of news articles, as well as the ever-changing nature of news. -->
-
-<!-- Traditionally, news article classification has been performed using supervised machine learning models. These models are trained on a labeled dataset of news articles, where each article has been assigned one or more topic labels. Once trained, the model can be used to classify new, unseen news articles. -->
-
-<!-- However, supervised machine learning models require a large amount of labeled data to train effectively. This can be expensive and time-consuming to collect. Additionally, supervised machine learning models are typically not able to generalize well to new, unseen topic labels. -->
-
-<!-- Zero-shot classification is a machine learning approach that can be used to classify data into multiple classes without any specific training examples for those classes. This is achieved by using a pre-trained language model to learn a semantic representation of the data. The semantic representation is then used to compare the data to a set of pre-defined topic labels. -->
-
-<!-- Zero-shot classification has several advantages over supervised machine learning for news article classification. First, it does not require any labeled data to train. Second, it is able to generalize well to new, unseen topic labels. Third, it is able to classify news articles into multiple topic labels simultaneously.   -->
-
-<!-- Zero-shot classification is a machine learning approach that can be used to classify data into multiple classes without any specific training examples for those classes. This is achieved by using a pre-trained language model to learn a semantic representation of the data. The semantic representation is then used to compare the data to a set of pre-defined topic labels. -->
-
-<!-- Zero-shot classification has several advantages over supervised machine learning for news article classification. First, it does not require any labeled data to train. Second, it is able to generalize well to new, unseen topic labels. Third, it is able to classify news articles into multiple topic labels simultaneously. -->
-
-<!-- This report describes a project to develop a zero-shot classification system for news article classification. The system was implemented using the Hugging Face Transformers library. The system was evaluated on a dataset of over 1 million news articles that have been manually labeled with topic labels. The system achieved an accuracy of 95%, an F1 score of 94%, a precision of 96%, and a recall of 93%. -->
 
 # Business need
 
@@ -86,7 +69,6 @@ This proactive approach not only mitigates potential risks but also unveils oppo
 Zero-shot classification is a transformative method in the domain of machine learning.
 Rather than relying on exhaustive labeled datasets for every possible category, it utilises semantic relationships to make educated classifications even for previously unseen categories (Smith et al., 2020).
 This method harnesses the latent power of language understanding, drawing inferences from the intrinsic meanings of words and phrases.
-Given that the models use
 
 ## Justification for Zero-Shot Classification:
 
@@ -197,8 +179,8 @@ The emphasis is on ensuring the model's efficacy and accuracy rather than real-t
 
 ### Multi-lingual Support:
 
-Given the vastness and complexity of the project, the scope will be limited to news articles penned in English.
-While multi-lingual support offers a broader reach, introducing multiple languages also adds layers of complexity which are beyond the current project's purview.
+Given the vastness and complexity of the project, the scope will be limited to news articles writtenin English.
+While multi-lingual support offers a broader reach, introducing multiple languages also adds layers of complexity which are beyond the current project's scope.
 
 ### Continuous Model Improvement Post-Deployment:
 
@@ -433,50 +415,67 @@ As an alternative only a few rows were manually labelled and assumed to be the g
 The TF-IDF method is a widely used statistical method in NLP or natural language processing.
 It aims to measure the importance of a particular term within a document relative to a corpus of terms which in this case would be the category list.
 
-<!-- **Adaptability:** Unlike traditional models, zero-shot classification seamlessly handles new, unseen categories, aligning well with the dynamic nature of financial news (Watson & Stone, 2021).   -->
+In terms of user application the resulting application was a streamlit application built using Python.
+The User Interface (UI) provided two methods to classify financial news headlines.
+The first method is a free text box to classify a single headline with the output displaying the label with its associated confidence score.
+The second method is to upload a Comma Separated Values (CSV) file with the user selecting the column that the model should use to classify from.
+Once the `classify` button is selected on the app, the predictions are generated and displayed in a table format with some additional exploratory charts displayed (see Charts Appendix).
 
-<!-- **Reduced Data Dependency:** It obviates the need for extensive labelled data, addressing a significant challenge faced by many machine learning projects (Roberts, 2020).   -->
+## Performance Metrics: 
 
-<!-- **Versatility:** Its ability to classify data into multiple labels simultaneously ensures a comprehensive understanding of multifaceted news pieces (Hughes & Martin, 2022). -->
+Evaluation the zero shot method using a subset of manually labelled headlines the model achieved an accuracy of approximately 67% for granular labels.
+Although this suggests that the model is not as effective as it should be it must be noted that a very small subset of manually labelled data was used to compare against the predictions which would cause the accuracy to reduce I expect that with a much larger sample of true labels the accuracy would improve.
+Another consideration to take into account is during manual inspection of random classifications it would note that the predictions were correct however the models confidence scores were low which initially would indicate that the label could be incorrect however in many cases this wasn't true.
+With further refinement this would significantly improve the model and its subsequent outputs with a higher confidence score.
+
+# Implication and caveats 
+
+The main implication involved with this project is the set of predefined labels provided to the model.
+These would need to be comprehensively studied and selected by domain experts to ensure it suits their needs in terms of what labels they would need to articles classifed as.
+The selection of the labels can have a vast influence on the outcome of the classifications.
+In addition to this the evolution of the financial jargon emerges fairly frequent this could mean that periodic evalution of labels may be required to stay relevant and accurate.
+
+Another consideration is the large amounts of computational power required to perform such classification task on a regular basis on large datasets depending on the number of articles that are being used on a daily basis.
+Whilst for this specific process GPUs and TPUs were used to quickly classify a smaller sample of the original dataset, it can be impractical and costly to use daily given the time taken to classify almost a thousand headlines still took a whopping 10 minutes to process.
+In absence of such superior processing power this could take in excess of several hours to classify which could impose the risk that such methods may not be relied on in the long term.
+
+Furthermore once the finalised version is deployed to the end users, in this case supervisors, it should be noted that whilst every effort is taken to correctly classify articles it can occasionally produce inaccurate results which may lead to potentially important articles being missed and subsequently have knock on impacts in the course of a supervisors role.
+
+# Results, Conclusion and Summary
+
+Categorising financial news headlines is an extremely complex task given its intricate nature within the financial domain.
+Zero shot classification performed extremely well especially given the fact that the model does not need to be pretrained and it was able to provide surprisingly accurate classifications on unseen text.
+It outperformed some traditional Natural Processing practices in particularly the TF-IDF method where it had a tendency to generalise the categories and missed out on the finer details within the headlines to provide a much more insightful classification.
+\
+\
+However it must be noted that the ZSL method is not without its challenges, when tasked with predicted overarching themes and categories it occasionally faltered which indicates there is room for further refinement and fine tuning of the model to suit the business needs in particular classifying financial risks relevant to the Prudential Regulation Authority (PRA), these risks include Credit Risk, Market Risk, Liquidity Risk, Generic Risk, Operational Risk, Fraud and fines and so on
+. These would enable supervisors to quickly ingest relevant information based on the risks they are investigating for their firm
+.
+
+The confidence scores associated with the predictions further provided insight into how the model performed with the labels provided.
+A higher confidence often translated into a correct categorisation as is expected, yet overlaps in the mid range scores also indicated that confidence scores arent a fool proof measure.
+Many predictions the model had a lower confidence score but were still perceived on analysis to be correct so this is not the only indicator to be used.
+In future iterations continuous refinement, validation and expert-labelled data and adaptive training will further hone the accuracy and reliability of the model.
+In addition it can be combined with other methods such as few shot learning and possibly supervised machine learning models to compare labels and choose the most optimal label.
 
 # References:
 
-Baker, M.
-(2021).
-The Evolution of Financial Systems.
-Cambridge University Press.
-Brown, A.
-& Johnson, T.
-(2019).
-Machine Learning in Dynamic Environments.
-Oxford Press.
-Davis, L.
-(2021).
-Financial News Analysis: A Multidimensional Approach.
-Routledge.
-Greenwood, P. (2020).
-Language Models in the Digital Age.
-Springer.
-Roberts, L.
-& Patel, N.
-(2020).
-BART: Breaking Barriers in Text Processing.
-Journal of Artificial Intelligence, 24(3), pp. 45-60.
-Smith, J., Taylor, R.
-& Williams, H.
-(2020).
-Zero-Shot Learning: A New Era.
-IEEE Machine Learning, 15(2), pp. 12-19.
-Turner, R.
-& Lee, J.
-(2019).
-Synergy in Financial Modelling.
-Financial Analytics Journal, 10(4), pp. 10-25.
-Wang, D., Zhou, L.
-& Chen, M.
-(2018).
-Challenges in Machine Learning Data Collection.
-AI Journal, 11(1), pp. 5-15.
+*What is supervised learning?* (no date) *IBM*.
+Available at: [<https://www.ibm.com/topics/supervised-learning>](https://www.ibm.com/topics/supervised-learning){.uri}
+
+Xian, Yongqin; Lampert, Christoph H.; Schiele, Bernt; Akata, Zeynep (2020-09-23).
+"Zero-Shot Learning -- A Comprehensive Evaluation of the Good, the Bad and the Ugly"
+
+IBM (2023) What is Random Forest?,
+IBM. Available at: <https://www.ibm.com/topics/random-forest>
+
+Nltk (2023) NLTK.
+Available at: <https://www.nltk.org/>
+
+Streamlit (2023) Available at: [https://streamlit.io/](https://spacy.io/)
+
+Spacy (2023) Spacy · industrial-strength natural language processing in python, · Industrial-strength Natural Language Processing in Python.
+Available at: <https://spacy.io/>
 
 # Appendices
 
@@ -632,33 +631,22 @@ if st.button("Classify"):
     progress_bar.empty()  # Reset the progress bar after completion
 ```
 
-*What is supervised learning?* (no date) *IBM*.
-Available at: <https://www.ibm.com/topics/supervised-learning>
+## Charts
 
-<!-- Methods -->
+![](figs/COMBINEDALL.png)
 
-<!-- The zero-shot classification system was implemented using the Hugging Face Transformers library. The system was trained on a pre-trained language model called BART. BART is a large language model that has been trained on a massive dataset of text and code. -->
+![](figs/broader_label_scoredist.png)
 
-<!-- Once the system was trained, it was evaluated on a dataset of over 1 million news articles that have been manually labeled with topic labels. The system was evaluated on the following metrics: -->
+![](figs/broader_labels_dist.png)
 
-<!-- Accuracy: The percentage of news articles that are correctly classified. -->
+![](figs/granular_labels_scoredist.png "Granular categories")
 
-<!-- F1 score: A measure of the system's precision and recall. -->
+![](figs/granular_labels_dist.png)
 
-<!-- Precision: The percentage of news articles that are classified as a particular topic that actually belong to that topic. -->
+![](figs/comparisonofscores.png)
 
-<!-- Recall: The percentage of news articles that belong to a particular topic that are correctly classified as that topic. -->
+![](figs/confusion.png)
 
-<!-- Results -->
+![](figs/apphome.png)
 
-<!-- The zero-shot classification system achieved an accuracy of 95%, an F1 score of 94%, a precision of 96%, and a recall of 93%. These results demonstrate that the system is able to classify news articles with high accuracy, even on new, unseen topic labels. -->
-
-<!-- Discussion -->
-
-<!-- The results of this project demonstrate that zero-shot classification is a promising approach to news article classification. Zero-shot classification does not require any labeled data to train, and it is able to generalize well to new, unseen topic labels. This makes zero-shot classification a particularly attractive approach for news article classification, where it can be difficult and expensive to collect labeled data. -->
-
-<!-- One limitation of the zero-shot classification system is that it can be slower than supervised machine learning models. This is because the zero-shot classification system needs to compare the news article to a set of pre-defined topic labels. However, the speed of the zero-shot classification system is still acceptable for many applications. -->
-
-<!-- Conclusion -->
-
-<!-- This project has demonstrated that zero-shot classification is a promising approach to news article classification. Zero-shot classification does not require any labeled data to train, and it is able to generalize well to new, unseen topic labels. This makes zero-shot classification a particularly attractive approach for news article classification, where it can be difficult and expensive to collect labeled data. -->
+![](figs/apppag1.png)
